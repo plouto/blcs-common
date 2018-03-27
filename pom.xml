@@ -2,11 +2,69 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.zhongan</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.11618</version>
+    </parent>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.zhongan</groupId>
     <artifactId>za-pre-blcs-common</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <!-- about blcs -->
+        <dependency>
+            <groupId>com.zhongan.blcs</groupId>
+            <artifactId>blcs-client</artifactId>
+            <version>1.0.6</version>
+        </dependency>
 
+        <!-- about kafka -->
+        <dependency>
+            <groupId>com.zhongan</groupId>
+            <artifactId>za-kafka-clients</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
+        <!-- about common -->
+        <dependency>
+            <groupId>com.zhongan</groupId>
+            <artifactId>za-pre-allin-common</artifactId>
+        </dependency>
+
+        <!-- about spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.0.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
